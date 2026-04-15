@@ -21,11 +21,23 @@ const props = defineProps({
     </div>
     <div class="stock">
       <div class="stock-level">
-        <p>{{ item.stock}}/</p>
+        <p>{{ item.stock}}</p>
       </div>
       <div class="min-stock-level">
           <p>{{ item.minStockLevel}}</p>
       </div>
+    </div>
+    <div class="units">
+      <p>{{ item.unit }}</p>
+    </div>
+    <div class="price">
+      <p>{{ item.price }}</p>
+    </div>
+    <div class="cost-price">
+      <p>{{ item.costPrice}}</p>
+    </div>
+    <div class="lastRestocked">
+      <p>{{ item.lastRestocked}}</p>
     </div>
   </div>
 </template>
@@ -39,40 +51,46 @@ const props = defineProps({
   display: flex;
   align-items: center;
   padding: 1rem;
-  gap: 2rem;
+  gap: 3rem;
 }
 .item-img {
-  border: 1px solid red;
+
   width: 4rem;
   height: 100%;
-  border-radius: 50% ;
+  border-radius: 50%;
+  background-color: var(--color-primary-3);
 }
 .sku{
-  border: 1px solid red;
   width: 4.5rem;
 }
 .category{
-  border: 1px solid red;
   width: 7rem;
 }
 .title{
-  border: 1px solid red;
   width: 14rem;
 }
 .stock{
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 2rem;
+  width: 4rem;
+  gap: 0.25rem
 }
 .stock .stock-level{
-  border: 1px solid red;
-  height: 70%;
-  font-size: 2rem;
+  height: 60%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: end;
 }
 .stock .min-stock-level{
-  border: 1px solid red;
-  height: 30%;
+  height: 40%;
 }
+.units{
+  width: 3rem;
+}
+.price, .cost-price{
+  width: 5rem;
+}
+
 
 </style>
