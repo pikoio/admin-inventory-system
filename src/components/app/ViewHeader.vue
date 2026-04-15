@@ -17,7 +17,7 @@ const props = defineProps({
 
 <style scoped>
 .view-header {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 </style>

@@ -36,7 +36,7 @@ const props = defineProps({
     <div class="cost-price">
       <p>{{ item.costPrice}}</p>
     </div>
-    <div class="lastRestocked">
+    <div class="last-restocked">
       <p>{{ item.lastRestocked}}</p>
     </div>
   </div>
@@ -54,12 +54,12 @@ const props = defineProps({
   gap: 3rem;
 }
 .item-img {
-
   width: 4rem;
   height: 100%;
   border-radius: 50%;
   background-color: var(--color-primary-3);
 }
+
 .sku{
   width: 4.5rem;
 }
@@ -90,6 +90,9 @@ const props = defineProps({
 }
 .price, .cost-price{
   width: 5rem;
+}
+.last-restocked{
+  width: 11rem;
 }
 
 

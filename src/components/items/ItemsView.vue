@@ -3,6 +3,7 @@
 import ViewHeader from "@/components/app/ViewHeader.vue";
 import {useProductsStore} from "@/stores/products.js";
 import ItemRow from "@/components/items/ItemRow.vue";
+import ListHeader from "@/components/items/ListHeader.vue";
 
 const store = useProductsStore()
 
@@ -13,9 +14,9 @@ const store = useProductsStore()
     <ViewHeader title="Items"/>
     <div class="content">
       <div class="filter-menu">
-
       </div>
       <div class="items-list">
+        <ListHeader/>
         <ItemRow v-for="item in store.products" :item="item" :key="item.id" />
       </div>
     </div>
@@ -34,11 +35,15 @@ const store = useProductsStore()
 .filter-menu{
   width: 15%;
 }
+.list-header{
+
+}
 .items-list{
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1.5rem
 }
+
 
 </style>
