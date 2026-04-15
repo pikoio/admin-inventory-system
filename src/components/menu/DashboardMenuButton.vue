@@ -23,6 +23,9 @@ defineProps({
     transition: background-color 0.25s;
     cursor: pointer;
   }
+  .dashboard-menu-button i{
+    color: var(--color-white)
+  }
   .dashboard-menu-button:hover {
     background-color: var(--color-primary-0);
   }

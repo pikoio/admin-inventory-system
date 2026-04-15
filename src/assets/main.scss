@@ -7,9 +7,26 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #333
 }
 li, ul {
   list-style: none;
+}
+a{
+  text-decoration: none;
+}
+h1{
+  font-size: 3rem;
+}
+h2{
+  font-size: 2rem;
+}
+h3{
+  font-size: 1.5rem;
+}
+h4{
+  font-size: 1.25rem;
 }
 :root{
   --color-primary-0: #4a5e39;
@@ -18,16 +35,18 @@ li, ul {
   --color-primary-3: #DCCCAC;
   --color-primary-4: #FFF8EC;
   --color-white: #FFFFFF;
-  --shadow-primary-1: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  --shadow-primary-1: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 
 }
 .container {
   width: 100%;
   max-width: 100%; /* Оптимально для контента */
   margin: 0 auto;    /* Центрирование */
-  padding: 0 ;   /* Отступы, чтобы текст не лип к краям на телефоне */
+  padding: 2rem ;   /* Отступы, чтобы текст не лип к краям на телефоне */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-primary-4);
 }
 
 .app-wrapper {

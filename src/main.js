@@ -4,14 +4,13 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import {createRouter, RouterLink, RouterView} from "vue-router";
+import {router} from "@/router/index.js";
 
 
-const router = createRouter()
+
 const pinia = createPinia()
 const app = createApp(App)
 
-app.component('RouterView', RouterView)
-    .component('RouterLink', RouterLink)
 
 
 app.use(router)

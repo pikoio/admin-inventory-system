@@ -10,7 +10,8 @@
 
 <style scoped>
   .app-header{
-    //border: 1px solid red;
+    border: 1px solid red;
     height: 5rem;
+
   }
 </style>

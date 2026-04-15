@@ -1,6 +1,6 @@
 <script setup>
 
-import DashboardMenuButton from "@/components/DashboardMenuButton.vue";
+import DashboardMenuButton from "@/components/menu/DashboardMenuButton.vue";
 </script>
 
 <template>
@@ -9,14 +9,14 @@ import DashboardMenuButton from "@/components/DashboardMenuButton.vue";
       <div class="icon">
         <div class="inner"></div>
       </div>
-      <p>Rounded</p>
+      <h3 class="title">Rounded</h3>
     </div>
     <div class="items">
-      <DashboardMenuButton :icon="'pi-database'">Dashboard</DashboardMenuButton>
-      <DashboardMenuButton :icon="'pi-server'">Items</DashboardMenuButton>
-      <DashboardMenuButton :icon="'pi-search'">Search</DashboardMenuButton>
-      <DashboardMenuButton :icon="'pi-tag'">Tags</DashboardMenuButton>
-      <DashboardMenuButton :icon="'pi-chart-line'">Reports</DashboardMenuButton>
+      <RouterLink to="/"><DashboardMenuButton :icon="'pi-database'">Dashboard</DashboardMenuButton></RouterLink>
+      <RouterLink to="/items"><DashboardMenuButton :icon="'pi-server'">Items</DashboardMenuButton></RouterLink>
+      <RouterLink to="/search"><DashboardMenuButton :icon="'pi-search'">Search</DashboardMenuButton></RouterLink>
+      <RouterLink to="/tags"><DashboardMenuButton :icon="'pi-tag'">Tags</DashboardMenuButton></RouterLink>
+      <RouterLink to="/reports"><DashboardMenuButton :icon="'pi-chart-line'">Reports</DashboardMenuButton></RouterLink>
     </div>
   </div>
 </template>
@@ -37,6 +37,9 @@ import DashboardMenuButton from "@/components/DashboardMenuButton.vue";
     color: var(--color-white);
     font-size: 1.5rem;
     padding: 1rem;
+  }
+  .header .title{
+    color: var(--color-white);
   }
   .header .icon{
     background-color: var(--color-white);

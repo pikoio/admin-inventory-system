@@ -1,8 +1,7 @@
 <script setup>
 import {useProductsStore} from "@/stores/products.js";
-import DashboardMenu from "@/components/DashboardMenu.vue";
+import DashboardMenu from "@/components/menu/DashboardMenu.vue";
 import AppHeader from "@/components/AppHeader.vue";
-import InventoryDashboard from "@/components/InventoryDashboard.vue";
 import AppFooter from "@/components/AppFooter.vue";
 
 const store = useProductsStore()
@@ -15,7 +14,7 @@ const store = useProductsStore()
       <DashboardMenu/>
       <div class="container">
         <AppHeader/>
-        <InventoryDashboard/>
+        <RouterView/>
         <AppFooter/>
       </div>
     </main>
