@@ -35,7 +35,7 @@
 
 <style scoped>
 .list-header {
-  height: 4rem;
+  height: 4.5rem;
   background-color: var(--color-primary-2);
   box-shadow: var(--shadow-primary-1);
   border-radius: 1rem;
@@ -43,7 +43,7 @@
   padding: 1rem;
   gap: 3rem;
   color: var(--color-white);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .sku, .category, .title, .stock, .units, .stock, .price, .cost-price, .last-restocked {
   display: flex;

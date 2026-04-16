@@ -1,9 +1,14 @@
 <script setup>
+import {computed} from "vue";
+
 const props = defineProps({
   item: {
     type: Object,
     required: true
   }
+})
+const isItemOutStock = computed(() => {
+  return props.item.stock < props.item.minStockLevel
 })
 </script>
 
@@ -19,12 +24,18 @@ const props = defineProps({
     <div class="title">
       <p>{{ item.title }}</p>
     </div>
+
     <div class="stock">
-      <div class="stock-level">
-        <p>{{ item.stock}}</p>
+      <div class="warning-icon">
+        <i v-if="isItemOutStock" class="pi pi-exclamation-circle"></i>
       </div>
-      <div class="min-stock-level">
+      <div class="clm-2">
+        <div class="stock-level" :class="{ out_stock: isItemOutStock }" >
+          <p>{{ item.stock}}</p>
+        </div>
+        <div class="min-stock-level">
           <p>{{ item.minStockLevel}}</p>
+        </div>
       </div>
     </div>
     <div class="units">
@@ -69,21 +80,39 @@ const props = defineProps({
 .title{
   width: 14rem;
 }
+
 .stock{
   display: flex;
-  flex-direction: column;
   height: 100%;
-  width: 4rem;
-  gap: 0.25rem
+  width: 5rem;
+  gap: 0.75rem;
 }
-.stock .stock-level{
-  height: 60%;
+.stock .warning-icon{
+  width: 1rem;
+  display: flex;
+  align-items: center;
+  color: var(--color-red);
+  font-size: 1.1rem;
+}
+.stock .warning-icon{
+  display: flex;
+  align-items: center;
+}
+.stock .clm-2{
+  display: flex;
+  flex-direction: column;
+}
+.stock .clm-2 .stock-level{
+  height: 50%;
   font-size: 1.2rem;
   display: flex;
   align-items: end;
 }
+.stock .clm-2 .stock-level.out_stock{
+  color: var(--color-red);
+}
 .stock .min-stock-level{
-  height: 40%;
+  height: 50%;
 }
 .units{
   width: 3rem;

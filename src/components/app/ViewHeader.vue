@@ -17,7 +17,9 @@ const props = defineProps({
 
 <style scoped>
 .view-header {
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
+  color: var(--color-primary-1);
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
 }
 </style>
