@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import {ref} from "vue";
+import {computed, ref} from "vue";
 
 export const useProductsStore = defineStore('products', () => {
 
@@ -126,33 +126,39 @@ export const useProductsStore = defineStore('products', () => {
         }
 
     ])
+    const filterCategory = ref('')
+    const sortOptions = ref({
+        key: 'id',
+        order: 'asc'
+    })
 
-    return { products }
+    const setSort = (column) => {
+        if(column === sortOptions.value.key){
+            sortOptions.value.order = 'desc'
+        }else{
+            sortOptions.value.key = column
+            sortOptions.value.order = 'asc'
+        }
+    }
+
+    const filteredProductsByCategory = computed(() => {
+        if (filterCategory.value.length === 0) return products.value
+        return products.value.filter(p => p.category === filterCategory.value)
+    })
+
+    const sortedProducts = computed(() => {
+        console.log('Sorting function')
+        const { key, order } = sortOptions.value
+        console.log("Sorting options")
+        console.log(key, order)
+        return [...filteredProductsByCategory.value].sort((a,  b) => {
+            let modifier = order === 'asc' ? 1 : -1
+            console.log("Modifier", modifier)
+            if (a[key] < b[key]) return -1 * modifier
+            if (a[key] > b[key]) return 1 * modifier
+            return 0
+        })
+    })
+
+    return { products, filterCategory, filteredProductsByCategory, sortedProducts, sortOptions }
 })
-//
-// export const useProducts = defineStore('products', {
-//     state: {
-//         /** @type {{
-//          * id:number,
-//          * sku:string,
-//          * title:string,
-//          * category:string,
-//          * price:number,
-//          * costPrice:number,
-//          * stock:number,
-//          * minStockLevel:number,
-//          * lastRestocked:string,
-//          * supplier:string
-//          * }[]}*/
-//         products: [
-//             {
-//                 id: 1,
-//                 title: 'Product 1',
-//                 category: 'Category 1',
-//                 price: 100,
-//                 costPrice
-//             }
-//         ],
-//     }
-//
-// })

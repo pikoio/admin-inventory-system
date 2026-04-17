@@ -1,7 +1,17 @@
 
 @import 'primeicons/primeicons.css';
 
+:root{
+  --color-primary-0: #4a5e39;
+  --color-primary-1: #546B41;
+  --color-primary-2: #99AD7A;
+  --color-primary-3: #DCCCAC;
+  --color-primary-4: #FFF8EC;
+  --color-white: #FFFFFF;
+  --color-red: #ff4a4a;
+  --shadow-primary-1: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 
+}
 *{
   box-sizing: border-box;
   margin: 0;
@@ -27,22 +37,28 @@ h3{
 h4{
   font-size: 1.25rem;
 }
-:root{
-  --color-primary-0: #4a5e39;
-  --color-primary-1: #546B41;
-  --color-primary-2: #99AD7A;
-  --color-primary-3: #DCCCAC;
-  --color-primary-4: #FFF8EC;
-  --color-white: #FFFFFF;
-  --color-red: #ff4a4a;
-  --shadow-primary-1: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
 }
+select:focus {
+  outline: none;
+  border-color: var(--primary-color-red);
+}
+
+
 .container {
   width: 100%;
-  max-width: 100%; /* Оптимально для контента */
-  margin: 0 auto;    /* Центрирование */
-  padding: 2rem ;   /* Отступы, чтобы текст не лип к краям на телефоне */
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem ;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,12 +68,12 @@ h4{
 .app-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Растягиваем на всю высоту экрана */
+  min-height: 100vh;
   border: 1px solid black;
 }
 
 .main-content {
   display: flex;
-  flex-grow: 1;      /* Прижимает футер к низу, если контента мало */
-  padding: 0;   /* Отступы сверху и снизу от хедера/футера */
+  flex-grow: 1;
+  padding: 0;
 }

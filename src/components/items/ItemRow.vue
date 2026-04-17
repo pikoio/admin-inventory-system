@@ -26,17 +26,12 @@ const isItemOutStock = computed(() => {
     </div>
 
     <div class="stock">
-      <div class="warning-icon">
-        <i v-if="isItemOutStock" class="pi pi-exclamation-circle"></i>
+      <div class="stock-level" :class="{ out_stock: isItemOutStock }" >
+        <p>{{ item.stock}}</p>
       </div>
-      <div class="clm-2">
-        <div class="stock-level" :class="{ out_stock: isItemOutStock }" >
-          <p>{{ item.stock}}</p>
-        </div>
-        <div class="min-stock-level">
-          <p>{{ item.minStockLevel}}</p>
-        </div>
-      </div>
+    </div>
+    <div class="stock">
+      <p>{{ item.minStockLevel}}</p>
     </div>
     <div class="units">
       <p>{{ item.unit }}</p>
@@ -70,7 +65,6 @@ const isItemOutStock = computed(() => {
   border-radius: 50%;
   background-color: var(--color-primary-3);
 }
-
 .sku{
   width: 4.5rem;
 }
@@ -83,36 +77,11 @@ const isItemOutStock = computed(() => {
 
 .stock{
   display: flex;
-  height: 100%;
+  gap: 0.5rem;
   width: 5rem;
-  gap: 0.75rem;
 }
-.stock .warning-icon{
-  width: 1rem;
-  display: flex;
-  align-items: center;
+.stock .stock-level.out_stock{
   color: var(--color-red);
-  font-size: 1.1rem;
-}
-.stock .warning-icon{
-  display: flex;
-  align-items: center;
-}
-.stock .clm-2{
-  display: flex;
-  flex-direction: column;
-}
-.stock .clm-2 .stock-level{
-  height: 50%;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: end;
-}
-.stock .clm-2 .stock-level.out_stock{
-  color: var(--color-red);
-}
-.stock .min-stock-level{
-  height: 50%;
 }
 .units{
   width: 3rem;

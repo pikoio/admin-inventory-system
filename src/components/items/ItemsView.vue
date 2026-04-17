@@ -8,20 +8,23 @@ import ItemsFilterMenu from "@/components/items/ItemsFilterMenu.vue";
 
 const store = useProductsStore()
 
+
+
 </script>
 
 <template>
   <div class="items-view">
-    <div class="content">
-      <div class="menu">
-        <ViewHeader title="Items"/>
-        <ItemsFilterMenu/>
-      </div>
+    <div class="header">
+      <ViewHeader title="Items"/>
+     <ItemsFilterMenu/>
+    </div>
       <div class="items-list">
         <ItemsListHeader/>
-        <ItemRow v-for="item in store.products" :item="item" :key="item.id" />
+        <ItemRow
+            v-for="item in store.sortedProducts"
+            :item="item"
+            :key="item.id" />
       </div>
-    </div>
   </div>
 </template>
 
@@ -32,15 +35,9 @@ const store = useProductsStore()
   flex: 1;
   padding-top: 1.5rem
 }
-.content{
+.header{
   display: flex;
-}
-.menu{
-  display: flex;
-  flex-direction: column;
-  width: 15%;
-  padding-right: 1.5rem;
-  gap: 1.5rem
+  justify-content: space-between;
 }
 .items-list{
   flex: 1;

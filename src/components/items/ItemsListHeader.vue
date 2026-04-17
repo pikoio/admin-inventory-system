@@ -1,80 +1,39 @@
 <script setup>
 
+import ItemListHeaderItem from "@/components/items/ItemListHeaderItem.vue";
+const columns = [
+  {title: 'SKU', dbTitle: 'sku'},
+  {title: 'Category', dbTitle: 'category'},
+  {title: 'Title', dbTitle: 'title'},
+  {title: 'Stock', dbTitle: 'stock'},
+  {title: 'Min stock', dbTitle: 'minStock'},
+  {title: 'Unit', dbTitle: 'unit'},
+  {title: 'Price', dbTitle: 'price'},
+  {title: 'Cost price', dbTitle: 'costPrice'},
+  {title: 'Last restocked', dbTitle:'lastRestocked'}
+]
 </script>
 
 <template>
   <div class="list-header">
-    <div class="img"></div>
-    <div class="sku">
-      <p>SKU</p>
-    </div>
-    <div class="category">
-      <p>Category</p>
-    </div>
-    <div class="title">
-      <p>Title</p>
-    </div>
-    <div class="stock">
-      <p>Stock/</p>
-      <p>Min</p>
-    </div>
-    <div class="units">
-      <p>Unit</p>
-    </div>
-    <div class="price">
-      <p>Price</p>
-    </div>
-    <div class="cost-price">
-      <p>Cost price</p>
-    </div>
-    <div class="last-restocked">
-      <p>Last restocked</p>
-    </div>
+    <span/>
+    <ItemListHeaderItem
+        v-for="column in columns"
+        :column="column.dbTitle">
+      {{ column.title }}
+    </ItemListHeaderItem>
   </div>
 </template>
 
 <style scoped>
 .list-header {
   height: 4.5rem;
+  padding: 1rem;
   background-color: var(--color-primary-2);
   box-shadow: var(--shadow-primary-1);
   border-radius: 1rem;
-  display: flex;
-  padding: 1rem;
-  gap: 3rem;
-  color: var(--color-white);
-  font-size: 1.1rem;
+  display: grid;
+  grid-template-columns: 4rem 4.5rem 7rem 14rem 5rem 5rem 3rem 5rem 5rem 11rem;
+  gap: 3rem
 }
-.sku, .category, .title, .stock, .units, .stock, .price, .cost-price, .last-restocked {
-  display: flex;
-  align-items: center;
-}
-.img{
-  width: 4rem
-}
-.sku{
-  width: 4.5rem;
-}
-.category{
-  width: 7rem;
-}
-.title{
-  width: 14rem;
-}
-
-.stock{
-  width: 4rem;
-  flex-direction: column;
-}
-.units{
-  width: 3rem;
-}
-.price, .cost-price{
-  width: 5rem
-}
-.last-restocked{
-  width: 11rem;
-}
-
-
 </style>
