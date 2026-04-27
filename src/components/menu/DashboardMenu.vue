@@ -1,6 +1,16 @@
 <script setup>
 
 import DashboardMenuButton from "@/components/menu/DashboardMenuButton.vue";
+import {ref} from "vue";
+
+const links = ref([
+  { title: "Dashboard", link: "/dashboard", icon: "pi-database" },
+  { title: "Items", link: "/items", icon: "pi-server" },
+  { title: "Search", link: "/search", icon: "pi-search" },
+  { title: "Tags", link: "/tags", icon: "pi-tag" },
+  { title: "Reports", link: "/reports", icon: "pi-chart-line" },
+])
+
 </script>
 
 <template>
@@ -12,11 +22,14 @@ import DashboardMenuButton from "@/components/menu/DashboardMenuButton.vue";
       <h3 class="title">Rounded</h3>
     </div>
     <div class="items">
-      <RouterLink to="/"><DashboardMenuButton :icon="'pi-database'">Dashboard</DashboardMenuButton></RouterLink>
-      <RouterLink to="/items"><DashboardMenuButton :icon="'pi-server'">Items</DashboardMenuButton></RouterLink>
-      <RouterLink to="/search"><DashboardMenuButton :icon="'pi-search'">Search</DashboardMenuButton></RouterLink>
-      <RouterLink to="/tags"><DashboardMenuButton :icon="'pi-tag'">Tags</DashboardMenuButton></RouterLink>
-      <RouterLink to="/reports"><DashboardMenuButton :icon="'pi-chart-line'">Reports</DashboardMenuButton></RouterLink>
+      <RouterLink
+          v-for="link in links"
+          :to="link.link">
+        <DashboardMenuButton
+            :icon="link.icon">
+          {{ link.title }}
+        </DashboardMenuButton>
+      </RouterLink>
     </div>
   </div>
 </template>

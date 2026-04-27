@@ -8,8 +8,6 @@ import ItemsFilterMenu from "@/components/items/ItemsFilterMenu.vue";
 
 const store = useProductsStore()
 
-
-
 </script>
 
 <template>
