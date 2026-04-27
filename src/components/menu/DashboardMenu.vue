@@ -3,6 +3,8 @@
 import DashboardMenuButton from "@/components/menu/DashboardMenuButton.vue";
 import {ref} from "vue";
 
+let isMenuOpen = ref(true)
+
 const links = ref([
   { title: "Dashboard", link: "/dashboard", icon: "pi-database" },
   { title: "Items", link: "/items", icon: "pi-server" },
@@ -14,18 +16,19 @@ const links = ref([
 </script>
 
 <template>
-  <div class="dashboard-menu">
+  <div class="dashboard-menu" :class="{ closed: !isMenuOpen}">
     <div class="header">
-      <div class="icon">
+      <div class="icon" @click="isMenuOpen = !isMenuOpen">
         <div class="inner"></div>
       </div>
-      <h3 class="title">Rounded</h3>
+      <h3 v-if="isMenuOpen" class="title">Rounded</h3>
     </div>
     <div class="items">
       <RouterLink
           v-for="link in links"
           :to="link.link">
         <DashboardMenuButton
+            :is-menu-open="isMenuOpen"
             :icon="link.icon">
           {{ link.title }}
         </DashboardMenuButton>
@@ -36,11 +39,14 @@ const links = ref([
 
 <style scoped>
   .dashboard-menu {
-    width: 15%;
+    width: 13%;
     display: flex;
     background-color: var(--color-primary-1);
     flex-direction: column;
     box-shadow: var(--shadow-primary-1);
+  }
+  .dashboard-menu.closed {
+    width: 5%;
   }
   .header{
     height: 5rem;
@@ -62,12 +68,18 @@ const links = ref([
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
   .header .icon .inner{
     background-color: var(--color-primary-1);
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
+    transition: width 0.3s, height 0.3s;
+  }
+  .header .icon .inner:hover{
+    width: 2rem;
+    height: 2rem;
   }
   .items{
     display: flex;

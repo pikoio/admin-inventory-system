@@ -1,13 +1,14 @@
 <script setup>
 defineProps({
   icon: String,
+  isMenuOpen: Boolean,
 })
 </script>
 
 <template>
   <div class="dashboard-menu-button">
     <i :class="'pi ' + icon"></i>
-    <slot/>
+    <slot v-if="isMenuOpen"/>
   </div>
 </template>
 
